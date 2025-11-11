@@ -1,4 +1,5 @@
 from pathlib import Path
+from lp1379.lp1379 import rswatcher
 
 def watch(path: str = None) -> None:
     '''
@@ -12,3 +13,4 @@ def watch(path: str = None) -> None:
     if not path.exists():
         raise FileNotFoundError(f"Given path does not exist: {path}")
     print(f"Watching path: {path}")
+    rswatcher(str(path))
