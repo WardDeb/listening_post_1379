@@ -1,0 +1,32 @@
+[build-system]
+requires = ["maturin>=1.0,<2.0"]
+build-backend = "maturin"
+
+[tool.maturin]
+python-source = "python"
+module-name = "lp1379"
+bindings = "pyo3"
+
+[project]
+description = "A common framework to analyse multi-modal single-cell data."
+dynamic = ["version"]
+name = "lp1379"
+authors = [
+    {name = "Ward Deboutte", email = "w@rddeboutte.com"},
+]
+readme = "README.md"
+requires-python = "> 3.10, <= 3.13"
+
+[project.urls]
+Homepage = "https://github.com/WardDeb/listening_post_1379"
+Repository = "https://github.com/WardDeb/listening_post_1379"
+[tool.ruff]
+exclude = [
+  "docs",
+  "tests"
+]
+[tool.pixi.workspace]
+channels = ["conda-forge", "bioconda"]
+platforms = ["linux-64"]
+[tool.pixi.pypi-dependencies]
+lp1379 = { path = ".", editable = true }
