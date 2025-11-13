@@ -13,4 +13,8 @@ def watch(path: str = None) -> None:
     if not path.exists():
         raise FileNotFoundError(f"Given path does not exist: {path}")
     print(f"Watching path: {path}")
-    rswatcher(str(path))
+
+    def handle_event(event):
+        print(event)
+
+    rswatcher(str(path), handle_event)
