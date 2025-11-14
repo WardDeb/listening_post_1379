@@ -13,13 +13,11 @@ fn rswatcher(py: Python<'_>, path: String, callback: PyObject) -> PyResult<()> {
         .watch(Path::new("."), RecursiveMode::Recursive)
         .unwrap();
 
-// To this:
 loop {
-    py.check_signals()?;  // Check BEFORE waiting
+    py.check_signals()?;
     
     match rx.recv_timeout(Duration::from_millis(100)) {
         Ok(Ok(event)) => {
-            println!("Event: {:?}", event);
             let dict = PyDict::new_bound(py);
             dict.set_item("kind", format!("{:?}", event.kind))?;
             dict.set_item("paths", 
