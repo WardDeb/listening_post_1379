@@ -4,3 +4,9 @@
 
 This repository mainly acts as a bridge between [notify](https://github.com/notify-rs/notify) and python.
 Ultimate goal is a _lightweight_ python importable function that watch a directory for changes.
+
+```python
+from lp1379.lp1379 import rswatcher
+```
+
+Example usage available under [examples](examples) folder.
