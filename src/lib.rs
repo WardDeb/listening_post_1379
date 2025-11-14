@@ -4,13 +4,13 @@ use pyo3::types::{PyDict};
 use std::{path::Path, time::Duration};
 
 #[pyfunction]
-fn rswatcher(py: Python<'_>, path: String, callback: PyObject) -> PyResult<()> {
+fn rswatcher(py: Python<'_>, path: String, callback: Py<PyAny>) -> PyResult<()> {
     let (tx, rx) = std::sync::mpsc::channel();
     let mut watcher: Box<dyn Watcher> = Box::new(RecommendedWatcher::new(tx, Config::default()).unwrap());
 
     // watch some stuff
     watcher
-        .watch(Path::new("."), RecursiveMode::Recursive)
+        .watch(Path::new(&path), RecursiveMode::Recursive)
         .unwrap();
 
 loop {
@@ -18,7 +18,7 @@ loop {
     
     match rx.recv_timeout(Duration::from_millis(100)) {
         Ok(Ok(event)) => {
-            let dict = PyDict::new_bound(py);
+            let dict = PyDict::new(py);
             dict.set_item("kind", format!("{:?}", event.kind))?;
             dict.set_item("paths", 
                 event.paths.iter()

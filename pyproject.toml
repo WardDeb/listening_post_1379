@@ -15,7 +15,7 @@ authors = [
     {name = "Ward Deboutte", email = "w@rddeboutte.com"},
 ]
 readme = "README.md"
-requires-python = "> 3.10, <= 3.13"
+requires-python = "> 3.10"
 
 [project.urls]
 Homepage = "https://github.com/WardDeb/listening_post_1379"

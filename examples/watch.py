@@ -18,3 +18,5 @@ def watch(path: str = None) -> None:
         print(event)
 
     rswatcher(str(path), handle_event)
+
+watch()
