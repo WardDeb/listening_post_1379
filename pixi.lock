@@ -259,8 +259,8 @@ packages:
 - pypi: ./
   name: lp1379
   version: 0.1.0
-  sha256: d3086953749f9424b855e8ace09412649475e1f92f1787606d9368e20b907e46
-  requires_python: '>3.10,<=3.13'
+  sha256: df90072ae1c9b8c381e1a007427ecfbfabf14602947b88d8fb865b78af677ca3
+  requires_python: '>3.10'
   editable: true
 - conda: https://conda.anaconda.org/conda-forge/linux-64/ncurses-6.5-h2d0b736_3.conda
   sha256: 3fde293232fa3fca98635e1167de6b7c7fda83caf24b9d6c91ec9eefb4f4d586
