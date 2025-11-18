@@ -20,6 +20,7 @@ requires-python = "> 3.10"
 [project.urls]
 Homepage = "https://github.com/WardDeb/listening_post_1379"
 Repository = "https://github.com/WardDeb/listening_post_1379"
+
 [tool.ruff]
 exclude = [
   "docs",
@@ -27,6 +28,7 @@ exclude = [
 ]
 [tool.pixi.workspace]
 channels = ["conda-forge", "bioconda"]
-platforms = ["linux-64"]
+platforms = ["linux-64", "osx-arm64", "osx-64", "win-64"]
+
 [tool.pixi.pypi-dependencies]
 lp1379 = { path = ".", editable = true }
