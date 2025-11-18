@@ -8,7 +8,7 @@ module-name = "lp1379"
 bindings = "pyo3"
 
 [project]
-description = "A common framework to analyse multi-modal single-cell data."
+description = "A simple bridge between notify-rs and python."
 dynamic = ["version"]
 name = "lp1379"
 authors = [
