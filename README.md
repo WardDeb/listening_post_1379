@@ -10,3 +10,24 @@ from lp1379.lp1379 import rswatcher
 ```
 
 Example usage available under [examples](examples) folder.
+
+## Installation
+
+Installable via pypi using pip:
+
+```bash
+pip install lp1379
+```
+
+or with uv:
+
+```bash
+uv pip install lp1379
+```
+
+The development version can be installed and used via pixi:
+
+```bash
+git clone git@github.com:WardDeb/listening_post_1379.git
+pixi run python
+```
