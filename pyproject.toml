@@ -1,5 +1,5 @@
 [build-system]
-requires = ["maturin>=1.0,<2.0"]
+requires = ["maturin>=1.9.4,<2.0"]
 build-backend = "maturin"
 
 [tool.maturin]
@@ -15,7 +15,9 @@ authors = [
     {name = "Ward Deboutte", email = "w@rddeboutte.com"},
 ]
 readme = "README.md"
-requires-python = "> 3.10"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.10"
 
 [project.urls]
 Homepage = "https://github.com/WardDeb/listening_post_1379"
@@ -32,3 +34,5 @@ platforms = ["linux-64", "osx-arm64", "osx-64", "win-64"]
 
 [tool.pixi.pypi-dependencies]
 lp1379 = { path = ".", editable = true }
+[tool.pixi.tasks]
+test = { cmd = "cargo test", env = { DYLD_LIBRARY_PATH = "$CONDA_PREFIX/lib", LD_LIBRARY_PATH = "$CONDA_PREFIX/lib" } }

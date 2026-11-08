@@ -6,10 +6,26 @@ This repository mainly acts as a bridge between [notify](https://github.com/noti
 Ultimate goal is a _lightweight_ python importable function that watches a directory for changes.
 
 ```python
-from lp1379.lp1379 import rswatcher
+from lp1379 import rswatcher
+
+rswatcher("some/dir", print)
 ```
 
-Example usage available under [examples](examples) folder.
+`rswatcher` watches the directory recursively and blocks until interrupted (Ctrl-C).
+The callback receives one dict per event:
+
+```python
+{"kind": "modify", "paths": ["some/dir/file.txt"]}
+```
+
+where `kind` is one of `create`, `modify`, `remove`, `access` or `other`.
+A path that doesn't exist raises an `OSError`.
+
+More example usage is available under the [examples](examples) folder.
+
+## License
+
+MIT
 
 ## Installation
 
@@ -30,4 +46,10 @@ The development version can be installed and used via pixi:
 ```bash
 git clone git@github.com:WardDeb/listening_post_1379.git
 pixi run python
+```
+
+Run the tests with:
+
+```bash
+pixi run test
 ```
